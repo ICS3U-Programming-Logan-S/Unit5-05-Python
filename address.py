@@ -13,7 +13,9 @@ def format_address(name, street_num, street, city_name,
 
     address = name
     if apt_num is not None:
-        address = address + " " + apt_num
+        address = (address + "\n" + street_num + " " + street + " " +
+                   apt_num + "\n" + city_name + ", " + province_name + "\n"
+                   + postal)
     else:
         address = (address + "\n" + street_num + " " + street +
                    "\n" + city_name + ", " + province_name + "\n" + postal)
@@ -49,9 +51,9 @@ def main():
     postal_code = input("What is your Postal Code?\n> ")
 
     if apt_number is not None:
-        complete_address = format_address(user_name, apt_number, street_number,
+        complete_address = format_address(user_name, street_number,
                                           street_name, city, province,
-                                          postal_code)
+                                          postal_code, apt_number)
     else:
         complete_address = format_address(user_name, street_number,
                                           street_name, city,
